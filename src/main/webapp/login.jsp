@@ -71,6 +71,9 @@
         </div>
     </div>
 </div>
+<script type="text/javascript" src="WEB-INF/lib/jquery-3.2.1.jar"></script>
+<script type="text/javascript">
 
+</script>
 </body>
 </html>
