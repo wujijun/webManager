@@ -2,14 +2,15 @@ package main.java.tools.util;
 
 
 import com.mysql.jdbc.Driver;
+import main.java.pojo.User;
 
 
-import javax.servlet.jsp.jstl.sql.Result;
+import java.io.Serializable;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class JDBCUtil {
+public class JDBCUtil  implements Serializable {
 /*加载驱动*/
     static {
         try {
@@ -57,7 +58,7 @@ public class JDBCUtil {
         }
     }
 /*封装增删改*/
-     public static int executeUpdate(String sql,java.lang.Object...obj){
+     public static int executeUpdate(String sql, Object...obj){
          int a = 0;
          Connection conn = null;
          PreparedStatement pstmt = null;
@@ -93,7 +94,7 @@ public class JDBCUtil {
             pstmt = conn.prepareStatement(sql);
             if (obj!=null){
                 for (int i= 0; i<obj.length;i++){
-                    pstmt.setObject(i+1,obj[i]);
+                    pstmt.setObject(i + 1,obj[i]);
                 }
             }
             rs = pstmt.executeQuery();

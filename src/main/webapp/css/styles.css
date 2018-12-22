@@ -83,6 +83,7 @@ input, button {
 	color:#fff;
 	display:block;
 }
+
 .login-form .group .input,
 .login-form .group .button{
 	border:none;
@@ -168,4 +169,33 @@ input, button {
 }
 .foot-lnk{
 	text-align:center;
+}
+
+.login-form .group #button1{
+	background:#1161ee;
+	padding:15px 20px;
+	border-radius:25px;
+	width:100%;
+	color:#fff;
+	display:block;
+	cursor: pointer;
+	text-transform:uppercase;
+}
+
+.login-form .group #button1:hover{
+	background:rgba(255,255,255,.1);
+}
+
+.login-form .group #button2{
+	background:#1161ee;
+	padding:15px 20px;
+	border-radius:25px;
+	width:100%;
+	color:#fff;
+	display:block;
+	cursor: pointer;
+	text-transform:uppercase;
+}
+.login-form .group #button2:hover{
+	background:rgba(255,255,255,.1);
 }
