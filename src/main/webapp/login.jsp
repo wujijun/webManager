@@ -42,38 +42,46 @@
                     </div>
                 </div>
                 </form>
+
+
                 <%--注册--%>
+                    <form id="up">
                 <div class="sign-up-htm">
                     <div class="group">
                         <label for="user" class="label">Username</label>
-                        <input id="user1" type="text" class="input">
+                        <input id="user1" type="text" class="input" name="Uname" placeholder="6~12个字符"><span id="message"></span>
                     </div>
                     <div class="group">
                         <label for="pass" class="label">Password</label>
-                        <input id="pass" type="password" class="input" data-type="password">
+                        <input id="pass" type="password" class="input" data-type="password" name="Upassword1" placeholder="6~12个字符">
                     </div>
                     <div class="group">
                         <label for="pass" class="label">Repeat Password</label>
-                        <input id="pass2" type="password" class="input" data-type="password">
+                        <input id="pass2" type="password" class="input" data-type="password" name="Upassword2" placeholder="6~12个字符"><span id="message1"></span>
                     </div>
                     <div class="group">
                         <label for="pass" class="label">Email Address</label>
-                        <input id="pass3" type="text" class="input">
+                        <input id="pass3" type="text" class="input" name="Uemail" placeholder="             @qq.com">
                     </div>
                     <div class="group">
-                        <input type="button" id="button2" name="SignUp" value="Sign Up">
+                        <input type="button" id="button2" name="SignUp" value="Sign Up" disabled="disabled">
                     </div>
                     <div class="hr"></div>
                     <div class="foot-lnk">
                         <label for="tab-1">Already Member?</label>
                     </div>
                 </div>
+                    </form>
             </div>
         </div>
     </div>
 </div>
+
+
+
     <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
     <script type="text/javascript">
+/*登录*/
         $(function () {
             $("#button1").click(function () {
                 var fm=$("#fm").serialize();
@@ -102,6 +110,45 @@
                     }
                 })
             })
+        });
+/*注册*/
+        $(function () {
+            var un ;
+            var psd;
+            var psd1;
+            var email;
+            $(".input").blur(function () {
+                un = $("#user1").val();
+                psd = $("#pass").val();
+                psd1 = $("#pass2").val();
+                email = $("#pass3").val();
+                $.ajax({
+                    url:"doRegister",
+                    type:"post",
+                    data:{"names":un ,"password":psd , "password1":psd1 , "email":email},
+                    success:function (result) {
+                        if (result =="0"){
+                            $("#message").text("请输入用户名！")
+                        }
+                        if (result == "1"){
+                            $("#message").text("用户已存在！")
+                        }
+                        else if (result == "2") {
+                            console.log(result);
+                            $("#message").text("√")              /*用户名可以注册*/
+                        }
+                        if (result == "23") {
+                            $("#message1").text("√");                    /*密码相同，可以注册*/
+                            $("#button").attr("disabled",false)          /*解开button*/
+                        }else if (result == "24") {
+                            $("#message1").text("两次密码不同，请从新输入")
+                        }
+                    }
+                });
+
+            })
+
+
         })
     </script>
 </body>

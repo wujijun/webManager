@@ -13,4 +13,24 @@ public class SoldierServiceImpl implements ISoldierService {
     public List<Soldiers> getlLists() {
         return dao.getlLists();
     }
+
+    @Override
+    public int add(Soldiers soldiers) {
+        return dao.add(soldiers);
+    }
+
+    @Override
+    public int delete(int id) {
+        return dao.delete(id);
+    }
+
+    @Override
+    public Soldiers getone(int id) {
+        return dao.getone(id);
+    }
+
+    @Override
+    public int update(Soldiers soldiers) {
+        return dao.update(soldiers);
+    }
 }
