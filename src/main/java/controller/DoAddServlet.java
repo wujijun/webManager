@@ -24,6 +24,7 @@ public class DoAddServlet extends HttpServlet {
         String Srank = req.getParameter("rank");
         Soldiers s = new Soldiers();
         s.setName(Sname);
+        s.setAge(Sage);
         s.setImg(Simg);
         s.setAddress(Saddress);
         s.setUnit(Sunit);

@@ -10,6 +10,17 @@
 <head>
     <title>Title</title>
     <link rel="stylesheet" type="text/css" href="css/styles.css">
+   <style>
+       body{
+
+           background-image: url("img/123.jpg");
+           background-position: center center;
+           background-size: cover;
+           background-repeat: no-repeat;
+           width: 100vw;        /*这个设置容器宽度为浏览器宽度*/
+           height: 100vh;
+       }
+   </style>
 </head>
 <body>
 <div class="jq22-container" style="padding-top:100px">
@@ -90,10 +101,10 @@
                     type:"post",
                     data:fm,
                     success:function (data) {
-                        alert(data);
+
                         switch (data) {
                             case "0":alert("Sign in successfully!");
-                                window.location.href="list";
+                                window.location.href="personally";
                                 break;
                             case "1":alert("PassWord error,please enter again!");
                                 window.location.href="login";
@@ -122,32 +133,46 @@
                 psd = $("#pass").val();
                 psd1 = $("#pass2").val();
                 email = $("#pass3").val();
+                console.log(un);
                 $.ajax({
                     url:"doRegister",
                     type:"post",
-                    data:{"names":un ,"password":psd , "password1":psd1 , "email":email},
-                    success:function (result) {
-                        if (result =="0"){
+                    data:{"user1":un ,"pass":psd , "pass2":psd1 , "pass3":email},
+                    success:function (data) {
+                        console.log(data);
+                        if (data =="0"){
                             $("#message").text("请输入用户名！")
                         }
-                        if (result == "1"){
+                        if (data == "1"){
                             $("#message").text("用户已存在！")
                         }
-                        else if (result == "2") {
-                            console.log(result);
-                            $("#message").text("√")              /*用户名可以注册*/
+                        else if (data == "2") {
+                            $("#message").text("√") ;              /*用户名可以注册*/
                         }
-                        if (result == "23") {
+                        if (data == "23") {
                             $("#message1").text("√");                    /*密码相同，可以注册*/
-                            $("#button").attr("disabled",false)          /*解开button*/
-                        }else if (result == "24") {
+                            $("#button2").attr("disabled",false)          /*解开button*/
+                        }else if (data == "24") {
                             $("#message1").text("两次密码不同，请从新输入")
                         }
                     }
                 });
 
             })
+            $("#button2").click(function () {
+                $.ajax({
+                    url:"doInsert",
+                    type:"post",
+                    data:{"user1":un ,"pass":psd , "pass2":psd1 , "pass3":email},
+                    success:function (data) {
+                        if (data =="1"){
+                            alert("注册成功")
+                            window.location.href="login";
+                        }
+                    }
 
+                })
+            })
 
         })
     </script>

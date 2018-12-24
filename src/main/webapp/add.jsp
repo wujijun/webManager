@@ -17,6 +17,7 @@
             background-repeat: no-repeat;
             width: 100vw;        /*这个设置容器宽度为浏览器宽度*/
             height: 100vh;
+            background: rgba(,0.8);
         }
         form{
             width: 193px;
