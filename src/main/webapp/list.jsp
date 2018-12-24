@@ -12,6 +12,10 @@
 <head>
     <title>Title</title>
     <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
         html body{
             background-image: url("img/111.jpg");
             background-position: center center;
@@ -42,7 +46,7 @@
 <body>
 <table>
     <div>
-        <h2>java英雄花名册</h2>
+        <h2>英雄花名册</h2>
     </div>
 
     <thead>
@@ -65,7 +69,7 @@
             <td>${s.id}</td>
             <td>${s.name}</td>
             <td>${s.age}</td>
-            <td>${s.img}</td>
+            <td><img src="${s.img}" width="40px" height="40px"> </td>
             <td>${s.address}</td>
             <td>${s.unit}</td>
             <td>${s.rank}</td>

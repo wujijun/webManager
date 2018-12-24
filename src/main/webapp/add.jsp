@@ -10,6 +10,10 @@
 <head>
     <title>Title</title>
     <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
         html body{
             background-image: url("img/115.jpg");
             background-position: center center;
@@ -17,7 +21,7 @@
             background-repeat: no-repeat;
             width: 100vw;        /*这个设置容器宽度为浏览器宽度*/
             height: 100vh;
-            background: rgba(,0.8);
+
         }
         form{
             width: 193px;
@@ -31,11 +35,11 @@
     </style>
 </head>
 <body>
-    <form action="doAdd" method="post">
+    <form action="doAdd" method="post" enctype="multipart/form-data">
 
         姓名：<input type="text" name="name"><br>
         年龄：<input type="text" name="age"><br>
-        图片：<input type="text" name="img"><br>
+        图片：<input type="file" name="file"><br>
         地址：<input type="text" name="address"><br>
         单位：<input type="text" name="unit"><br>
         级别：<input type="text" name="rank"><br>
