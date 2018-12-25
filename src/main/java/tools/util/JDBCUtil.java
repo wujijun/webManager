@@ -138,8 +138,33 @@ public static <T> T getOne(String sql,RowMap<T> rm , Object...obj){
     }
     return a;
 }
-/*封装查询总数量*/
+/*封装统计数量*/
+public static int executeCount(String sql,  Object... obj) {
+    int a = 0;
+    Connection con = null;
+    PreparedStatement pstmt = null;
+    con = getConnection();
+    ResultSet rs = null;
 
+    try {
+        con.setAutoCommit(false);
+        pstmt = con.prepareStatement(sql);
+        if (obj != null) {
+            for (int i = 0; i < obj.length; i++) {
+                pstmt.setObject(i + 1, obj[i]);
+            }
+        }
+        rs = pstmt.executeQuery();
+        while (rs.next()) {
+            a = rs.getInt(1);
+        }
+    } catch (SQLException e) {
+        e.printStackTrace();
+    } finally {
+        close(null, pstmt, con);
+    }
+    return a;
+}
 
 
 }

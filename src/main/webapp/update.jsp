@@ -12,19 +12,22 @@
     <title>Title</title>
 </head>
 <body>
-<script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
 
-<form action="doUpdate" method="post" enctype="multipart/form-data">
+<form action="doUpdate" method="post" enctype="multipart/form-data" >
+
     <input type="text" name="id" hidden="hidden" value="${s.id}"><br>
-    姓名：<input type="text" name="name" value=${s.name}><br>
-    年龄：<input type="text" name="age"><br>
-    图片：<input type="file" name="file"><br>
-    地址：<input type="text" name="address"><br>
-    单位：<input type="text" name="unit"><br>
-    级别：<input type="text" name="rank"><br>
+    姓名：<input type="text" name="name" value="${s.name}"><br>
+    年龄：<input type="text" name="age" value="${s.age}" ><br>
+    图片：<input type="file" name="file" value="${s.img}"><br>
+    地址：<input type="text" name="address" value="${s.address}"><br>
+    单位：<input type="text" name="unit" value="${s.unit}"><br>
+    级别：<input type="text" name="rank" value="${s.rank}"><br>
     <input type="submit" name="submit" value="确认修改">
 
 </form>
+<script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+<script>
 
+</script>
 </body>
 </html>

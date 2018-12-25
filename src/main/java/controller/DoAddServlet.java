@@ -1,8 +1,7 @@
 package main.java.controller;
 
 import main.java.pojo.Soldiers;
-import main.java.servicce.ISoldierService;
-import main.java.servicce.SoldierServiceImpl;
+
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.MultipartConfig;
@@ -16,14 +15,12 @@ import java.io.*;
 @MultipartConfig
 @WebServlet("/doAdd")
 public class DoAddServlet extends HttpServlet {
-    private ISoldierService service = new SoldierServiceImpl();
+    private servicce.ISoldierService service = new servicce.SoldierServiceImpl();
 
     @Override
     protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String Sname = req.getParameter("name");
         String Sage = req.getParameter("age");
-        /*String Simg = req.getParameter("img");*/
-
         String Saddress = req.getParameter("address");
         String Sunit = req.getParameter("unit");
         String Srank = req.getParameter("rank");
@@ -42,7 +39,6 @@ public class DoAddServlet extends HttpServlet {
             a= is.read(b,0,b.length);
         }
 
-        System.out.println(url);
 
         Soldiers s = new Soldiers();
         s.setName(Sname);

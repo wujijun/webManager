@@ -1,6 +1,6 @@
 package main.java.pojo;
 
-public class Soldiers {
+public class Soldiers extends PageBean{
     private int id;
     private String name;
     private String age;

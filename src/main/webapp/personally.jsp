@@ -25,12 +25,18 @@
         div{
             width: 150px;
             height: 100%;
-
+            padding: 5px;
             list-style: none;
         }
         #img{
             width: 100%;
+            height: 200px;
+            overflow: hidden;
+        }
+        #img #imgimg{
+            width: 150px;
             height: 150px;
+            border-radius: 50%;
             overflow: hidden;
         }
         #text{
@@ -52,6 +58,7 @@
             color: black;
             font-size: 25px;
             line-height: 50px;
+            margin-left: 20px;
         }
         #SignOut{
             width: 100%;
@@ -65,16 +72,18 @@
     <div>
         <div id="img">
             <form action="img" method="post" enctype="multipart/form-data">
+                <div id="imgimg">
+                    <img id="img1" width="180px" height="180px" >
+                </div>
                 <input type="file"  name="file" onchange="Change(this)">
-                <img id="img1" width="150px" height="150px">
                 <input type="submit" name="submit">
             </form>
         </div>
         <div id="text">
-            姓名：张三<br>
-            年龄：18<br>
-            性别: 女<br>
-            级别：中士
+               姓名：张三<br>
+               年龄：18<br>
+               性别: 女<br>
+               级别：中士
         </div>
         <li><span>教育背景</span></li>
         <li><span>个人经历</span></li>
@@ -102,6 +111,7 @@
             reader.readAsDataURL(obj.files[0])
         }
     </script>
+
 </body>
 
 

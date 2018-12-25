@@ -1,4 +1,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page import="java.util.List" %>
+<%@ page import="main.java.pojo.Soldiers" %>
 <%--
   Created by IntelliJ IDEA.
   User:wujijun
@@ -21,6 +23,7 @@
             background-position: center center;
             background-size: cover;
             background-repeat: no-repeat;
+
             width: 100vw;        /*这个设置容器宽度为浏览器宽度*/
             height: 100vh;
         }
@@ -40,14 +43,27 @@
             width: 180px;
             margin: auto;
         }
+        ul{
+            display: flex;
+            list-style: none;
+        }
+        li{
+            padding: 5px;
+            text-decoration: none;
+        }
 
     </style>
 </head>
 <body>
-<table>
-    <div>
-        <h2>英雄花名册</h2>
-    </div>
+    <form  method="post">
+        <input type="text" name="text">
+        <input type="submit" name="search">
+    </form>
+
+    <table>
+        <div>
+            <h2>英雄花名册</h2>
+        </div>
 
     <thead>
     <tr>
@@ -64,7 +80,7 @@
     </thead>
     <tbody>
 
-        <c:forEach items="${list}" var="s">
+        <c:forEach items="${data.lists}" var="s">
         <tr>
             <td>${s.id}</td>
             <td>${s.name}</td>
@@ -77,9 +93,28 @@
             <td><a href="update?id=${s.id}">修改</a> </td>
         </tr>
         </c:forEach>
-
-    </body>
+    </tbody>
     <div>
         <a href="add"><h2>添加入伍人员</h2></a>
+
     </div>
+
+</table>
+
+<ul>
+    ${data.pageView}
+
+
+     <%--   <li class="page"><a href="list?pageNo=1">首页</a></li>
+        <li class="page"><a href="list?pageNo=1">下一页</a></li>
+        <li class="page"><a href="list?pageNo=2">2</a></li>
+        <li class="page"><a href="list?pageNo=3">3</a></li>
+        <li class="page"><a href="list?pageNo=4">4</a></li>
+        <li class="page"><a href="list?pageNo=5">5</a></li>
+        <li class="page"><a href="list?pageNo=5">上一页</a></li>
+        <li class="page"><a href="list?pageNo=5">尾页</a></li>--%>
+
+</ul>
+    </body>
+
 </html>
