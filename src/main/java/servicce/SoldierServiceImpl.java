@@ -1,14 +1,15 @@
-package servicce;
+package main.java.servicce;
 
 import main.java.dao.ISoldierDao;
 import main.java.dao.SoldierDaoImpl;
 import main.java.pojo.Result;
 import main.java.pojo.Soldiers;
+import main.java.servicce.ISoldierService;
 
 import java.util.List;
 
-public class SoldierServiceImpl implements servicce.ISoldierService {
-   private ISoldierDao dao = (ISoldierDao) new SoldierDaoImpl();
+public class SoldierServiceImpl implements ISoldierService {
+   private ISoldierDao dao =  new SoldierDaoImpl();
 
     @Override
     public List<Soldiers> getlLists() {
@@ -40,5 +41,10 @@ public class SoldierServiceImpl implements servicce.ISoldierService {
     @Override
     public int update(Soldiers soldiers) {
         return dao.update(soldiers);
+    }
+
+    @Override
+    public List<Soldiers> getResults(String text) {
+        return dao.getResults(text);
     }
 }

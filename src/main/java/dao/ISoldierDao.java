@@ -10,8 +10,7 @@ public interface ISoldierDao {
     public int delete(int id);
     public  Soldiers getone(int id);
     public  int update(Soldiers soldiers);
-
     public int getCount();
-
+    public List<Soldiers>getResults(String text);
     public List<Soldiers> getlLists(int pageNo, int pageSize);
 }

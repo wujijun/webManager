@@ -1,4 +1,4 @@
-package servicce;
+package main.java.servicce;
 
 import main.java.pojo.Result;
 import main.java.pojo.Soldiers;
@@ -12,4 +12,5 @@ public interface ISoldierService {
     public int delete(int id);
     public  Soldiers getone(int id);
     public  int update(Soldiers soldiers);
+    public List<Soldiers> getResults(String text);
 }

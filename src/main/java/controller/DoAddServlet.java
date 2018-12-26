@@ -1,6 +1,8 @@
 package main.java.controller;
 
 import main.java.pojo.Soldiers;
+import main.java.servicce.ISoldierService;
+import main.java.servicce.SoldierServiceImpl;
 
 
 import javax.servlet.ServletException;
@@ -15,7 +17,7 @@ import java.io.*;
 @MultipartConfig
 @WebServlet("/doAdd")
 public class DoAddServlet extends HttpServlet {
-    private servicce.ISoldierService service = new servicce.SoldierServiceImpl();
+    private ISoldierService service = new SoldierServiceImpl();
 
     @Override
     protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

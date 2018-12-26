@@ -1,0 +1,17 @@
+*{
+    margin: 0;
+    padding: 0;
+    color: white;
+}
+html body {
+    background-color: black;
+}
+
+#left{
+    width: 200px;
+    height: 100%;
+    position: relative;
+    left: 100px;
+    border-right: white solid 1px;
+
+}

@@ -9,24 +9,13 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=utf-8" language="java" isELIgnored="false" %>
-
+<link href="css/background.css" type="text/css">
 <html>
 <head>
     <title>Title</title>
-    <style>
-        *{
-            margin: 0;
-            padding: 0;
-        }
-        html body{
-            background-image: url("img/111.jpg");
-            background-position: center center;
-            background-size: cover;
-            background-repeat: no-repeat;
 
-            width: 100vw;        /*这个设置容器宽度为浏览器宽度*/
-            height: 100vh;
-        }
+    <style>
+
         table{
             border: black 1px solid;
             border-collapse: collapse;
@@ -39,7 +28,7 @@
         tbody tr:nth-child(odd){
             background-color: aquamarine;
         }
-        div{
+        .tag{
             width: 180px;
             margin: auto;
         }
@@ -55,13 +44,21 @@
     </style>
 </head>
 <body>
+    <div id="left">
+
+    </div>
+    <div id="right">
+
+
+
+
     <form  method="post">
-        <input type="text" name="text">
+        <input type="text" name="text" value="${text}">
         <input type="submit" name="search">
     </form>
 
     <table>
-        <div>
+        <div class="tag">
             <h2>英雄花名册</h2>
         </div>
 
@@ -80,7 +77,8 @@
     </thead>
     <tbody>
 
-        <c:forEach items="${data.lists}" var="s">
+        <%--<c:forEach items="${data.lists}" var="s">--%>
+        <c:forEach items="${list}" var="s">
         <tr>
             <td>${s.id}</td>
             <td>${s.name}</td>
@@ -94,15 +92,15 @@
         </tr>
         </c:forEach>
     </tbody>
-    <div>
+    <div class="tag">
         <a href="add"><h2>添加入伍人员</h2></a>
 
     </div>
 
 </table>
 
-<ul>
-    ${data.pageView}
+    <ul>
+   <%-- ${data.pageView}--%>
 
 
      <%--   <li class="page"><a href="list?pageNo=1">首页</a></li>
@@ -114,7 +112,8 @@
         <li class="page"><a href="list?pageNo=5">上一页</a></li>
         <li class="page"><a href="list?pageNo=5">尾页</a></li>--%>
 
-</ul>
-    </body>
+        </ul>
+    </div>
+</body>
 
 </html>

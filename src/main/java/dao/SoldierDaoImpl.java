@@ -76,6 +76,28 @@ public class SoldierDaoImpl implements ISoldierDao {
     }
 
     @Override
+    public List<Soldiers> getResults(String text) {
+        return JDBCUtil.executeQuery("select * from soldiers where name like concat('%',?,'%')", new RowMap<Soldiers>() {
+            @Override
+            public Soldiers RowMaping(ResultSet rs) {
+                Soldiers s =new Soldiers();
+                try {
+                    s.setId(rs.getInt("id"));
+                    s.setName(rs.getString("name"));
+                    s.setAge(rs.getString("age"));
+                    s.setImg(rs.getString("img"));
+                    s.setAddress(rs.getString("address"));
+                    s.setUnit(rs.getString("unit"));
+                    s.setRank(rs.getString("rank"));
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+                return s;
+            }
+        }, text);
+    }
+
+    @Override
     public List<Soldiers> getlLists(int pageNo, int pageSize) {
         return JDBCUtil.executeQuery("select * from soldiers limit ?,?", new RowMap<Soldiers>() {
             @Override
