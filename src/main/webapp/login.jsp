@@ -91,7 +91,7 @@
 
 
 
-    <script type="text/javascript" src="${path}/js/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
     <script type="text/javascript">
 /*登录*/
         $(function () {
@@ -105,7 +105,7 @@
 
                         switch (data) {
                             case "0":alert("Sign in successfully!");
-                                window.location.href="personally";
+                                window.location.href="list";
                                 break;
                             case "1":alert("PassWord error,please enter again!");
                                 window.location.href="login";

@@ -16,86 +16,6 @@
     <link rel="stylesheet" href="css/backgroundStyle.css" type="text/css">
     <style>
 
-        *{
-            margin: 0;
-            padding: 0;
-            list-style: none;
-
-        }
-        #big{
-            width: 1600px;
-            height: 980px;
-            margin: auto;
-            background-color:cornflowerblue;
-            /* display: flex;*/
-
-        }
-
-        #big #left{
-            width: 299px;
-            height: 100%;
-            float: left;
-            border-right: white solid 1px;
-
-        }
-        #top{
-            width: 1300px;
-            height: 149px;
-            float: right;
-            border-bottom: white solid 1px;
-            font-family: 楷体;
-            font-size: 45px;
-            text-align: center;
-            line-height: 149px;
-        }
-        #logo{
-            width: 150px;
-            height: 100%;
-            float: right;
-            overflow: hidden;
-        }
-        #big #right{
-            width: 1300px;
-            height: 830px;
-            float: right;
-        }
-        #left_img{
-            width: 290px;
-            height: 290px;
-            border-radius: 50%;
-            overflow: hidden;
-        }
-
-        .S_menu{
-            width: 100%;
-            height: 100px;
-        }
-        .tag1{
-            position: relative;
-            left: 299px;
-            bottom: 0px;
-            width: 150px;
-            height: 830px;
-        }
-        .select_button{
-            width: 100%;
-            height: 100px;
-            font-size: 35px;
-            border-bottom: #aaaaaa solid 1px;
-        }
-
-
-
-
-
-        input:hover{
-            background-color: red;
-        }
-
-
-
-
-
         table{
             border: black 1px solid;
             border-collapse: collapse;
@@ -116,12 +36,8 @@
             margin: auto;
             font-size: large;
         }
-        ul{
-            display: flex;
-            list-style: none;
-        }
+
         li{
-            padding: 15px;
             text-decoration: none;
         }
 
@@ -133,70 +49,148 @@
         <div id="left_img">
             <img src="img/1113.jpeg" width=100% height=100%>
         </div>
-
-        <form id="sele" method="get">
-                <li class="S_menu">
-                    <input type="submit" class="select_button" name="1" value="士兵管理">
-                    <ul class="tag1">
-                        <li>
-                            <input type="submit" class="select_button" name="10" value="新兵">
-                        </li>
-                        <li>
-                            <input type="submit" class="select_button" name="11" value="老兵">
-                        </li>
-                        <li>
-                            <input type="submit" class="select_button" name="12" value="下士">
-                        </li>
-                        <li>
-                            <input type="submit" class="select_button" name="13" value="中士">
-                        </li>
-                        <li>
-                            <input type="submit" class="select_button" name="14" value="上士">
-                        </li>
-                        <li>
-                            <input type="submit" class="select_button" name="15" value="四级军士长">
-                        </li>
-                        <li>
-                            <input type="submit" class="select_button" name="16" value="三级军士长">
-                        </li>
-                        <li>
-                            <input type="submit" class="select_button" name="17" value="二级军士长">
-                        </li>
-                        <li>
-                            <input type="submit" class="select_button" name="18" value="一级军士长">
-                        </li>
-                    </ul>
-                </li>
-                <li class="S_menu">
-                    <input type="submit" class="select_button" name="1" value="干部管理">
-
-                </li>
-                <li class="S_menu">
-                    <input type="submit" class="select_button" name="1" value="单位管理">
-                </li>
-                <li class="S_menu">
-                    <input type="submit" class="select_button" name="1" value="个人信息">
-                </li>
-
-
-            <%--<input type="submit" class="select_button" name="1" value="士兵管理">
-            <input type="submit" class="select_button" name="1" value="干部管理">
-            <input type="submit" class="select_button" name="1" value="单位管理">
-            <input type="submit" class="select_button" name="1" value="个人信息">--%>
+        <%--个人信息--%>
+        <form  method="post" action="personally">
+                <li class="S_menu" >
+                   <input type="submit" class="select_button" name="1" value="个人信息">
+                   <ul class="tag1">
+                       <li>
+                           <input type="submit" class="select_button1" name="10" value="入伍信息">
+                       </li>
+                       <li>
+                           <input type="submit" class="select_button1" name="11" value="配属单位">
+                       </li>
+                       <li>
+                           <input type="submit" class="select_button1" name="12" value="装备配备">
+                       </li>
+                       <li>
+                           <input type="submit" class="select_button1" name="13" value="考核成绩">
+                       </li>
+                   </ul>
+             </li>
         </form>
-
-
+        <%--士兵管理--%>
+        <form  method="post" action="list">
+            <li class="S_menu">
+                <input type="submit" class="select_button" name="1" value="士兵管理">
+                <ul class="tag1">
+                    <li>
+                        <input type="submit" class="select_button1" name="10" value="新兵">
+                    </li>
+                    <li>
+                        <input type="submit" class="select_button1" name="11" value="老兵">
+                    </li>
+                    <li>
+                        <input type="submit" class="select_button1" name="12" value="下士">
+                    </li>
+                    <li>
+                        <input type="submit" class="select_button1" name="13" value="中士">
+                    </li>
+                    <li>
+                        <input type="submit" class="select_button1" name="14" value="上士">
+                    </li>
+                    <li>
+                        <input type="submit" class="select_button1" name="15" value="四级军士长">
+                    </li>
+                    <li>
+                        <input type="submit" class="select_button1" name="16" value="三级军士长">
+                    </li>
+                    <li>
+                        <input type="submit" class="select_button1" name="17" value="二级军士长">
+                    </li>
+                    <li>
+                        <input type="submit" class="select_button1" name="18" value="一级军士长">
+                    </li>
+                </ul>
+            </li>
+        </form>
+        <%--干部管理--%>
+        <form  method="post" action="">
+            <li class="S_menu">
+                <input type="submit" class="select_button" name="1" value="干部管理">
+                <ul class="tag1">
+                    <li>
+                        <input type="submit" class="select_button1" name="10" value="学员">
+                    </li>
+                    <li>
+                        <input type="submit" class="select_button1" name="11" value="中尉">
+                    </li>
+                    <li>
+                        <input type="submit" class="select_button1" name="12" value="上尉">
+                    </li>
+                    <li>
+                        <input type="submit" class="select_button1" name="13" value="少校">
+                    </li>
+                    <li>
+                        <input type="submit" class="select_button1" name="14" value="中校">
+                    </li>
+                    <li>
+                        <input type="submit" class="select_button1" name="15" value="上校">
+                    </li>
+                    <li>
+                        <input type="submit" class="select_button1" name="16" value="大校">
+                    </li>
+                    <li>
+                        <input type="submit" class="select_button1" name="17" value="将军">
+                    </li>
+                </ul>
+            </li>
+        </form>
+        <%--单位管理--%>
+        <form  method="post" action="">
+            <li class="S_menu">
+                <input type="submit" class="select_button" name="1" value="单位管理">
+                <ul class="tag1">
+                    <li>
+                        <input type="submit" class="select_button1" name="10" value="机关">
+                    </li>
+                    <li>
+                        <input type="submit" class="select_button1" name="11" value="指挥营">
+                    </li>
+                    <li>
+                        <input type="submit" class="select_button1" name="12" value="一营">
+                    </li>
+                    <li>
+                        <input type="submit" class="select_button1" name="13" value="二营">
+                    </li>
+                    <li>
+                        <input type="submit" class="select_button1" name="14" value="三营">
+                    </li>
+                    <li>
+                        <input type="submit" class="select_button1" name="15" value="四营">
+                    </li>
+                    <li>
+                        <input type="submit" class="select_button1" name="16" value="五营">
+                    </li>
+                    <li>
+                        <input type="submit" class="select_button1" name="17" value="榴炮营">
+                    </li>
+                    <li>
+                        <input type="submit" class="select_button1" name="18" value="汽车营">
+                    </li>
+                    <li>
+                        <input type="submit" class="select_button1" name="19" value="卫生队">
+                    </li>
+                </ul>
+            </li>
+        </form>
+        <%--退出登录--%>
+        <form  method="post" action="login">
+            <li class="S_menu">
+                <input type="submit" class="select_button" name="1" value="退出登录">
+            </li>
+        </form>
     </div>
-    <div id="top">
 
+    <div id="top">
         欢迎登陆陆军管理系统
         <div id="logo">
             <img src="img/111.jpg" width="160px" height="160px">
         </div>
     </div>
     <div id="right">
-
-        <form  method="post">
+<%--模糊查询--%>
+        <form  id="search" method="post">
             <input type="text" name="text" value="${text}">
             <input type="submit" name="search" value="查询">
         </form>
