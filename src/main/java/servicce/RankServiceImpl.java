@@ -20,16 +20,16 @@ public class RankServiceImpl implements IRankService {
 
     @Override
     public int delete(int id) {
-        return 0;
+        return dao.delete(id);
     }
 
     @Override
     public Rank getone(int id) {
-        return null;
+        return dao.getone(id);
     }
 
     @Override
     public int update(Rank rank) {
-        return 0;
+        return dao.update(rank);
     }
 }

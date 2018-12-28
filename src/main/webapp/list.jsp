@@ -70,7 +70,7 @@
              </li>
         </form>
         <%--士兵管理--%>
-        <form  method="post" action="list">
+        <form  method="post" action="soldierM">
             <li class="S_menu">
                 <input type="submit" class="select_button" name="1" value="士兵管理">
                 <ul class="tag1">
