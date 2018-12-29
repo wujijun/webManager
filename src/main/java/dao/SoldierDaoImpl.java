@@ -32,6 +32,28 @@ public class SoldierDaoImpl implements ISoldierDao {
      }
 
     @Override
+    public List<Soldiers> getlList(String rank) {
+        return JDBCUtil.executeQuery("select * from soldiers where rank = ?", new RowMap<Soldiers>() {
+            @Override
+            public Soldiers RowMaping(ResultSet rs) {
+                Soldiers s = new Soldiers();
+                try {
+                    s.setId(rs.getInt("id"));
+                    s.setName(rs.getString("name"));
+                    s.setAge(rs.getString("age"));
+                    s.setImg(rs.getString("img"));
+                    s.setAddress(rs.getString("address"));
+                    s.setUnit(rs.getString("unit"));
+                    s.setRank(rs.getString("rank"));
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+                return s;
+            }
+        },rank);
+    }
+
+    @Override
     public int add(Soldiers soldiers) {
         return JDBCUtil.executeUpdate("insert into soldiers(name,age,img,address,unit,rank) value(?,?,?,?,?,?)",
                 soldiers.getName(),soldiers.getAge(),soldiers.getImg(),soldiers.getAddress(),soldiers.getUnit(),soldiers.getRank());

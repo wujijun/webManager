@@ -14,6 +14,11 @@ public class RankServiceImpl implements IRankService {
     }
 
     @Override
+    public List<Rank> getlList(String name) {
+        return dao.getlLists(name);
+    }
+
+    @Override
     public int add(Rank rank) {
         return dao.add(rank);
     }

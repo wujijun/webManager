@@ -28,6 +28,24 @@ public class RankDaoImpl implements IRankDao {
     }
 
     @Override
+    public List<Rank> getlLists(String name) {
+        return JDBCUtil.executeQuery("select * from rank where rank = ?", new RowMap<Rank>() {
+            @Override
+            public Rank RowMaping(ResultSet rs) {
+                Rank r = new Rank();
+                try {
+                    r.setRank_id(rs.getInt("rank_id"));
+                    r.setRank_name(rs.getString("rank_name"));
+                    r.setRank_desc(rs.getString("rank_desc"));
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+                return r;
+            }
+        }, name);
+    }
+
+    @Override
     public int add(Rank rank) {
         return JDBCUtil.executeUpdate("insert into rank(rank_id,rank_name,rank_desc value(?,?,?)",
                 rank.getRank_id(),rank.getRank_name(),rank.getRank_desc());
