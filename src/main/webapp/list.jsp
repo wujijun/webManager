@@ -101,7 +101,7 @@
                         <input type="submit" class="select_button1" name="rank" value="二级军士长">
                     </li>
                     <li>
-                        <input type="submit" class="select_button1" name="rank" value="一级军士长">
+                        <input type="submit" class="select_button1" name="rank" value="兵王">
                     </li>
                 </ul>
             </li>

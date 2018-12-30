@@ -70,32 +70,34 @@
             <li class="S_menu">
                 <input type="submit" class="select_button" name="1" value="士兵管理">
                 <ul class="tag1">
+
                     <li>
-                        <input type="submit" class="select_button1" name="10" value="新兵">
+                        <input type="submit" class="select_button1" name="rank" value="新兵">
+                    </li>
+
+                    <li>
+                        <input type="submit" class="select_button1" name="rank" value="老兵">
                     </li>
                     <li>
-                        <input type="submit" class="select_button1" name="11" value="老兵">
+                        <input type="submit" class="select_button1" name="rank" value="下士">
                     </li>
                     <li>
-                        <input type="submit" class="select_button1" name="12" value="下士">
+                        <input type="submit" class="select_button1" name="rank" value="中士">
                     </li>
                     <li>
-                        <input type="submit" class="select_button1" name="13" value="中士">
+                        <input type="submit" class="select_button1" name="rank" value="上士">
                     </li>
                     <li>
-                        <input type="submit" class="select_button1" name="14" value="上士">
+                        <input type="submit" class="select_button1" name="rank" value="四级军士长">
                     </li>
                     <li>
-                        <input type="submit" class="select_button1" name="15" value="四级军士长">
+                        <input type="submit" class="select_button1" name="rank" value="三级军士长">
                     </li>
                     <li>
-                        <input type="submit" class="select_button1" name="16" value="三级军士长">
+                        <input type="submit" class="select_button1" name="rank" value="二级军士长">
                     </li>
                     <li>
-                        <input type="submit" class="select_button1" name="17" value="二级军士长">
-                    </li>
-                    <li>
-                        <input type="submit" class="select_button1" name="18" value="一级军士长">
+                        <input type="submit" class="select_button1" name="rank" value="兵王">
                     </li>
                 </ul>
             </li>
