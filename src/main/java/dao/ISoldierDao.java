@@ -7,6 +7,7 @@ import java.util.List;
 public interface ISoldierDao {
     public List<Soldiers> getlLists();
     public List<Soldiers> getlList(String rank);
+    public List<Soldiers> getlListU(String unit);
     public int add(Soldiers soldiers);
     public int delete(int id);
     public  Soldiers getone(int id);

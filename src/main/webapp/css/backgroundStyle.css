@@ -85,3 +85,27 @@ input:hover{
 #search{
     float: right;
 }
+table{
+    border: black 1px solid;
+    border-collapse: collapse;
+    margin: auto;
+}
+thead tr th,tbody tr td {
+    border:black 1px solid;
+    padding: 15px;
+}
+tbody tr:nth-child(odd){
+    background-color: aquamarine;
+}
+tbody tr:hover{
+    background-color: red;
+}
+.tag{
+    width: 180px;
+    margin: auto;
+    font-size: large;
+}
+
+li{
+    text-decoration: none;
+}

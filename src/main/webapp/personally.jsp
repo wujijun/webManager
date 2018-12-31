@@ -78,71 +78,77 @@
             </li>
         </form>
         <%--干部管理--%>
-        <form  method="post" action="">
+        <form  method="post" action="soldiersM">
             <li class="S_menu">
                 <input type="submit" class="select_button" name="1" value="干部管理">
                 <ul class="tag1">
                     <li>
-                        <input type="submit" class="select_button1" name="10" value="学员">
+                        <input type="submit" class="select_button1" name="rank" value="学员">
                     </li>
                     <li>
-                        <input type="submit" class="select_button1" name="11" value="中尉">
+                        <input type="submit" class="select_button1" name="rank" value="中尉">
                     </li>
                     <li>
-                        <input type="submit" class="select_button1" name="12" value="上尉">
+                        <input type="submit" class="select_button1" name="rank" value="上尉">
                     </li>
                     <li>
-                        <input type="submit" class="select_button1" name="13" value="少校">
+                        <input type="submit" class="select_button1" name="rank" value="少校">
                     </li>
                     <li>
-                        <input type="submit" class="select_button1" name="14" value="中校">
+                        <input type="submit" class="select_button1" name="rank" value="中校">
                     </li>
                     <li>
-                        <input type="submit" class="select_button1" name="15" value="上校">
+                        <input type="submit" class="select_button1" name="rank" value="上校">
                     </li>
                     <li>
-                        <input type="submit" class="select_button1" name="16" value="大校">
+                        <input type="submit" class="select_button1" name="rank" value="大校">
                     </li>
                     <li>
-                        <input type="submit" class="select_button1" name="17" value="将军">
+                        <input type="submit" class="select_button1" name="rank" value="少将">
+                    </li>
+                    <li>
+                        <input type="submit" class="select_button1" name="rank" value="中将">
+                    </li>
+                    <li>
+                        <input type="submit" class="select_button1" name="rank" value="上将">
                     </li>
                 </ul>
             </li>
         </form>
         <%--单位管理--%>
-        <form  method="post" action="">
+        <form  method="post" action="unitM">
             <li class="S_menu">
                 <input type="submit" class="select_button" name="1" value="单位管理">
                 <ul class="tag1">
                     <li>
-                        <input type="submit" class="select_button1" name="10" value="机关">
+                        <input type="submit" class="select_button1" name="unit" value="机关">
                     </li>
                     <li>
-                        <input type="submit" class="select_button1" name="11" value="指挥营">
+                        <input type="submit" class="select_button1" name="unit" value="指挥营">
                     </li>
                     <li>
-                        <input type="submit" class="select_button1" name="12" value="一营">
+                        <input type="submit" class="select_button1" name="unit" value="一营">
                     </li>
                     <li>
-                        <input type="submit" class="select_button1" name="13" value="二营">
+                        <input type="submit" class="select_button1" name="unit" value="二营">
                     </li>
                     <li>
-                        <input type="submit" class="select_button1" name="14" value="三营">
+                        <input type="submit" class="select_button1" name="unit" value="三营">
                     </li>
                     <li>
-                        <input type="submit" class="select_button1" name="15" value="四营">
+                        <input type="submit" class="select_button1" name="unit" value="四营">
                     </li>
                     <li>
-                        <input type="submit" class="select_button1" name="16" value="五营">
+                        <input type="submit" class="select_button1" name="unit" value="五营">
                     </li>
                     <li>
-                        <input type="submit" class="select_button1" name="17" value="榴炮营">
+                        <input type="submit" class="select_button1" name="unit" value="塔克营">
                     </li>
                     <li>
-                        <input type="submit" class="select_button1" name="18" value="汽车营">
+                        <input type="submit" class="select_button1" name="unit" value="汽车营">
                     </li>
                     <li>
-                        <input type="submit" class="select_button1" name="19" value="卫生队">
+                        <input type="submit" class="select_button1" name="unit" value="卫生队">
                     </li>
                 </ul>
             </li>

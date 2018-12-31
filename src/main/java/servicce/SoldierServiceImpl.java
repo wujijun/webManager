@@ -22,6 +22,11 @@ public class SoldierServiceImpl implements ISoldierService {
     }
 
     @Override
+    public List<Soldiers> getlListU(String unit) {
+        return dao.getlListU(unit);
+    }
+
+    @Override
     public Result getlLists(int pageNo, int pageSize) {
         Result data = new Result(pageNo,pageSize,dao.getCount());
         data.setLists(dao.getlLists(pageNo,pageSize));

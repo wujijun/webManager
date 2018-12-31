@@ -8,6 +8,7 @@ import java.util.List;
 public interface ISoldierService {
     public List<Soldiers> getlLists();
     public List<Soldiers> getlList(String rank);
+    public List<Soldiers> getlListU(String unit);
     public Result getlLists(int pageNo, int pageSize);
     public int add(Soldiers soldiers);
     public int delete(int id);
