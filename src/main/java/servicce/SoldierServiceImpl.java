@@ -1,10 +1,10 @@
-package main.java.servicce;
+package servicce;
 
-import main.java.dao.ISoldierDao;
-import main.java.dao.SoldierDaoImpl;
-import main.java.pojo.Result;
-import main.java.pojo.Soldiers;
-import main.java.servicce.ISoldierService;
+
+import dao.ISoldierDao;
+import dao.SoldierDaoImpl;
+import pojo.Result;
+import pojo.Soldiers;
 
 import java.util.List;
 
@@ -56,5 +56,12 @@ public class SoldierServiceImpl implements ISoldierService {
     @Override
     public List<Soldiers> getResults(String text) {
         return dao.getResults(text);
+    }
+
+    @Override
+    public Result getLists(int pageNo, int pageSize, String text) {
+        Result data = new Result(pageNo,pageSize,dao.getCount(text));
+        data.setLists(dao.getlLists(pageNo,pageSize,text));
+        return data;
     }
 }

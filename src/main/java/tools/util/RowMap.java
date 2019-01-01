@@ -1,4 +1,4 @@
-package main.java.tools.util;
+package tools.util;
 
 import java.sql.ResultSet;
 

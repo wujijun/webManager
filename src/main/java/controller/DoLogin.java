@@ -1,16 +1,14 @@
-package main.java.controller;
+package controller;
 
-import main.java.dao.IUserDao;
-import main.java.dao.UserDaoImpl;
-import main.java.pojo.User;
+
+import dao.IUserDao;
+import dao.UserDaoImpl;
+import pojo.User;
 
 import javax.servlet.ServletException;
-import javax.servlet.ServletRequest;
-import javax.servlet.ServletResponse;
+
 import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.*;
 import java.io.IOException;
 @WebServlet("/doLogin")
 public class DoLogin extends HttpServlet {
@@ -26,7 +24,21 @@ public class DoLogin extends HttpServlet {
                 }
             else {
                 if (Upassword.equals(u.getUpassword())) {
-                    resp.getWriter().write("0");        /*登录成功*/
+                    resp.getWriter().write("0");     /*登录成功*/
+
+                    /*cookie*/
+                    Cookie cookn = new Cookie("Uname",Uname);
+                    Cookie cookp = new Cookie("Upassword",Upassword);
+                    /*设置Cookie存活时间*/
+                    cookn.setMaxAge(60*60*10);
+                    cookp.setMaxAge(60*60*10);
+                    resp.addCookie(cookn);
+                    resp.addCookie(cookp);
+
+                    /*session*/
+                    HttpSession session = req.getSession();
+                    session.setAttribute("U",u);
+
                 } else {
                     resp.getWriter().write("1");        /*密码错误*/
                 }

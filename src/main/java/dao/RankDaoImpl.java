@@ -1,8 +1,9 @@
-package main.java.dao;
+package dao;
 
-import main.java.pojo.Rank;
-import main.java.tools.util.JDBCUtil;
-import main.java.tools.util.RowMap;
+
+import pojo.Rank;
+import tools.util.JDBCUtil;
+import tools.util.RowMap;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;

@@ -1,12 +1,10 @@
-package main.java.controller;
+package controller;
 
-import main.java.dao.IRankDao;
-import main.java.pojo.Rank;
-import main.java.pojo.Soldiers;
-import main.java.servicce.IRankService;
-import main.java.servicce.ISoldierService;
-import main.java.servicce.RankServiceImpl;
-import main.java.servicce.SoldierServiceImpl;
+
+
+import pojo.Soldiers;
+import servicce.ISoldierService;
+import servicce.SoldierServiceImpl;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;

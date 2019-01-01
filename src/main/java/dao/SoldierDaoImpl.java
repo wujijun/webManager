@@ -1,8 +1,9 @@
-package main.java.dao;
+package dao;
 
-import main.java.pojo.Soldiers;
-import main.java.tools.util.JDBCUtil;
-import main.java.tools.util.RowMap;
+
+import pojo.Soldiers;
+import tools.util.JDBCUtil;
+import tools.util.RowMap;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -120,6 +121,11 @@ public class SoldierDaoImpl implements ISoldierDao {
     }
 
     @Override
+    public int getCount(String text) {
+        return JDBCUtil.executeCount("select count(*) from soldiers where name like concat('%',?,'%') ",text);
+    }
+
+    @Override
     public List<Soldiers> getResults(String text) {
         return JDBCUtil.executeQuery("select * from soldiers where name like concat('%',?,'%')", new RowMap<Soldiers>() {
             @Override
@@ -161,6 +167,28 @@ public class SoldierDaoImpl implements ISoldierDao {
                 return s;
             }
         },(pageNo-1)*pageSize,pageSize);
+    }
+
+    @Override
+    public List<Soldiers> getlLists(int pageNo, int pageSize, String text) {
+        return JDBCUtil.executeQuery("select * from soldiers  where name like concat('%',?,'%') limit ?,?", new RowMap<Soldiers>() {
+            @Override
+            public Soldiers RowMaping(ResultSet rs) {
+                Soldiers s = new Soldiers();
+                try {
+                    s.setId(rs.getInt("id"));
+                    s.setName(rs.getString("name"));
+                    s.setAge(rs.getString("age"));
+                    s.setImg(rs.getString("img"));
+                    s.setAddress(rs.getString("address"));
+                    s.setUnit(rs.getString("unit"));
+                    s.setRank(rs.getString("rank"));
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+                return s;
+            }
+        }, text, (pageNo - 1)*pageSize, pageSize);
     }
 
 }

@@ -1,6 +1,7 @@
-package main.java.dao;
+package dao;
 
-import main.java.pojo.User;
+
+import pojo.User;
 
 public interface IUserDao {
     public int insert(User user);

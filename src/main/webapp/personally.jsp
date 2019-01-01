@@ -5,7 +5,8 @@
   Time: 18:50
   To change this template use File | Settings | File Templates.
 --%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" isELIgnored="false" %>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
     <title>Title</title>
@@ -168,34 +169,14 @@
         </div>
     </div>
     <div id="right">
-    <div>
-        <div id="img">
-            <form action="img" method="post" enctype="multipart/form-data">
-                <div id="imgimg">
-                    <img id="img1" width="180px" height="180px" >
-                </div>
-                <input type="file"  name="file" onchange="Change(this)">
-                <input type="submit" name="submit">
-            </form>
-        </div>
-        <li><span>教育背景</span></li>
-        <li><span>个人经历</span></li>
-        <li><span>家庭住址</span></li>
-        <li><span>历史成绩</span></li>
+    <div id="right_center">
+        ${user}
+
 
     </div>
     <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
     <script type="text/javascript">
-        /*图片显示*/
-        function Change(obj) {
-            console.log(obj);
-            var reader = new FileReader();
-            reader.onload=function (ev) {
-                var img = document.getElementById("img1");
-                img.src = ev.target.result;
-            };
-            reader.readAsDataURL(obj.files[0])
-        }
+
     </script>
     </div>
 </div>

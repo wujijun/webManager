@@ -1,7 +1,7 @@
-package main.java.dao;
+package dao;
 
-import main.java.pojo.Rank;
 
+import pojo.Rank;
 
 import java.util.List;
 

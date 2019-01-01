@@ -1,8 +1,9 @@
-package main.java.servicce;
+package servicce;
 
-import main.java.dao.IRankDao;
-import main.java.dao.RankDaoImpl;
-import main.java.pojo.Rank;
+
+import dao.IRankDao;
+import dao.RankDaoImpl;
+import pojo.Rank;
 
 import java.util.List;
 

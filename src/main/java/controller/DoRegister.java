@@ -1,8 +1,9 @@
-package main.java.controller;
+package controller;
 
-import main.java.dao.IUserDao;
-import main.java.dao.UserDaoImpl;
-import main.java.pojo.User;
+
+import dao.IUserDao;
+import dao.UserDaoImpl;
+import pojo.User;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;

@@ -1,8 +1,9 @@
-package main.java.controller;
+package controller;
 
-import main.java.dao.IUserDao;
-import main.java.dao.UserDaoImpl;
-import main.java.pojo.User;
+
+import dao.IUserDao;
+import dao.UserDaoImpl;
+import pojo.User;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -10,6 +11,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+
 @WebServlet("/doInsert")
 public class DoInsert extends HttpServlet {
     private IUserDao service = new UserDaoImpl();

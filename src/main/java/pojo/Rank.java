@@ -1,4 +1,4 @@
-package main.java.pojo;
+package pojo;
 
 public class Rank {
     private int rank_id;

@@ -1,46 +1,19 @@
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ page import="java.util.List" %>
-<%@ page import="pojo.Soldiers" %>
 <%--
   Created by IntelliJ IDEA.
-  User:wujijun
-  Date: 2018/12/22 0022
-  Time: 14:43
+  User: Administrator
+  Date: 2019/1/1 0001
+  Time: 22:27
   To change this template use File | Settings | File Templates.
 --%>
-<%@ page contentType="text/html;charset=utf-8" language="java" isELIgnored="false" %>
-
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
     <title>Title</title>
     <link rel="stylesheet" href="css/backgroundStyle.css" type="text/css">
-   <style>
-       .pages{
-           list-style: none;
-           margin-left: 405px;
-           margin-top: 200px;
-       }
-       .pages li{
-           float: left;
-           height: 30px;
-           width: 30px;
-           line-height: 30px;
-           text-align: center;
-           border: solid 1px #000;
-       }
-       .pages li a{
-           text-decoration: none;
-           color: #000;
-           display: block;
-       }
-       .pages .page{
-           width: 80px;
-           height: 30px;
-       }
-       .pages li:hover{
-           cursor: pointer;
-       }
-   </style>
+    <style>
+
+    </style>
 </head>
 <body>
 <div id="big">
@@ -50,23 +23,23 @@
         </div>
         <%--个人信息--%>
         <form  method="post" action="personally">
-                <li class="S_menu" >
-                   <input type="submit" class="select_button" name="1" value="个人信息">
-                   <ul class="tag1">
-                       <li>
-                           <input type="submit" class="select_button1" name="10" value="入伍信息">
-                       </li>
-                       <li>
-                           <input type="submit" class="select_button1" name="11" value="配属单位">
-                       </li>
-                       <li>
-                           <input type="submit" class="select_button1" name="12" value="装备配备">
-                       </li>
-                       <li>
-                           <input type="submit" class="select_button1" name="13" value="考核成绩">
-                       </li>
-                   </ul>
-             </li>
+            <li class="S_menu" >
+                <input type="submit" class="select_button" name="1" value="个人信息">
+                <ul class="tag1">
+                    <li>
+                        <input type="submit" class="select_button1" name="10" value="入伍信息">
+                    </li>
+                    <li>
+                        <input type="submit" class="select_button1" name="11" value="配属单位">
+                    </li>
+                    <li>
+                        <input type="submit" class="select_button1" name="12" value="装备配备">
+                    </li>
+                    <li>
+                        <input type="submit" class="select_button1" name="13" value="考核成绩">
+                    </li>
+                </ul>
+            </li>
         </form>
         <%--士兵管理--%>
         <form  method="post" action="soldiersM">
@@ -182,84 +155,40 @@
             </li>
         </form>
         <%--退出登录--%>
-        <form  method="post" action="out">
+        <form  method="post" action="login">
             <li class="S_menu">
                 <input type="submit" class="select_button" name="1" value="退出登录">
             </li>
         </form>
     </div>
-
     <div id="top">
+
         欢迎登陆陆军管理系统
         <div id="logo">
             <img src="img/111.jpg" width="160px" height="160px">
         </div>
     </div>
-
     <div id="right">
-<%--模糊查询--%>
-        <form  id="search" method="get">
-            <input type="text" name="text" value="${text}">
-            <input type="submit" name="search" value="查询">
-        </form>
+        <div id="right_center">
 
-        <table>
-            <div class="tag">
-                <h2>英雄花名册</h2>
+
+            <div id="img">
+                <form action="img" method="post" enctype="multipart/form-data">
+                    <div id="imgimg">
+                        <img id="img1" width="180px" height="180px" >
+                    </div>
+                    <input type="file"  name="file" onchange="Change(this)">
+                    <input type="submit" name="submit">
+                </form>
             </div>
 
-        <thead>
-        <tr>
-            <th>编号</th>
-            <th>姓名</th>
-            <th>年龄</th>
-            <th>头像</th>
-            <th>地址</th>
-            <th>单位</th>
-            <th>级别</th>
-            <th>删除</th>
-            <th>修改</th>
-        </tr>
-        </thead>
-        <tbody>
-
-            <%--<c:forEach items="${data.lists}" var="s">--%>
-            <c:forEach items="${data.lists}" var="s">
-            <tr>
-                <td>${s.id}</td>
-                <td>${s.name}</td>
-                <td>${s.age}</td>
-                <td><img src="${s.img}" width="40px" height="40px"> </td>
-                <td>${s.address}</td>
-                <td>${s.unit}</td>
-                <td>${s.rank}</td>
-                <td><a href="delete?id=${s.id}">删除</a> </td>
-                <td><a href="update?id=${s.id}">修改</a> </td>
-            </tr>
-            </c:forEach>
-        </tbody>
-
-        <div class="tag">
-            <a href="add"><h2>添加入伍人员</h2></a>
 
         </div>
+        <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+        <script type="text/javascript">
 
-        </table>
-
-         <ul class="pages">
-             ${data.pageView}
-
-     <%--   <li class="page"><a href="list?pageNo=1">首页</a></li>
-        <li class="page"><a href="list?pageNo=1">下一页</a></li>
-        <li class="page"><a href="list?pageNo=2">2</a></li>
-        <li class="page"><a href="list?pageNo=3">3</a></li>
-        <li class="page"><a href="list?pageNo=4">4</a></li>
-        <li class="page"><a href="list?pageNo=5">5</a></li>
-        <li class="page"><a href="list?pageNo=5">上一页</a></li>
-        <li class="page"><a href="list?pageNo=5">尾页</a></li>--%>
-        </ul>
+        </script>
     </div>
 </div>
 </body>
-
 </html>

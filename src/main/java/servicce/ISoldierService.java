@@ -1,7 +1,8 @@
-package main.java.servicce;
+package servicce;
 
-import main.java.pojo.Result;
-import main.java.pojo.Soldiers;
+
+import pojo.Result;
+import pojo.Soldiers;
 
 import java.util.List;
 
@@ -15,4 +16,5 @@ public interface ISoldierService {
     public  Soldiers getone(int id);
     public  int update(Soldiers soldiers);
     public List<Soldiers> getResults(String text);
+    public Result getLists(int pageNo,int pageSize,String text);
 }

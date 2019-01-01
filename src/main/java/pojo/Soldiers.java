@@ -1,4 +1,4 @@
-package main.java.pojo;
+package pojo;
 
 public class Soldiers extends PageBean{
     private int id;

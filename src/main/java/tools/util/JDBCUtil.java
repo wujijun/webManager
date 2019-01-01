@@ -1,16 +1,15 @@
-package main.java.tools.util;
+package tools.util;
+
+
 
 
 import com.mysql.jdbc.Driver;
-import main.java.pojo.User;
 
-
-import java.io.Serializable;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class JDBCUtil  implements Serializable {
+public class JDBCUtil   {
 /*加载驱动*/
     static {
         try {

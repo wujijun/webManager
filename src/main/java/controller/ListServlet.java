@@ -1,31 +1,66 @@
-package main.java.controller;
+package controller;
 
-import main.java.pojo.Rank;
-import main.java.pojo.Result;
-
-import main.java.pojo.Soldiers;
-import main.java.servicce.IRankService;
-import main.java.servicce.ISoldierService;
-import main.java.servicce.RankServiceImpl;
-import main.java.servicce.SoldierServiceImpl;
-import sun.plugin.dom.core.Document;
+import com.alibaba.fastjson.JSONObject;
+import pojo.Result;
+import pojo.Soldiers;
+import pojo.User;
+import servicce.ISoldierService;
+import servicce.SoldierServiceImpl;
+import tools.util.CookieUtil;
 
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.*;
 import java.io.IOException;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+
 @MultipartConfig
 @WebServlet("/list")
 public class ListServlet extends HttpServlet {
-    private ISoldierService service =  new SoldierServiceImpl();
-    private IRankService service1 =new RankServiceImpl();
+    private ISoldierService service = new SoldierServiceImpl();
+
     @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        resp.setCharacterEncoding("utf-8");
+
+        Cookie[] cookies = req.getCookies();
+       Map<String,Cookie> maps = CookieUtil.getCookie(cookies);
+       Cookie coo = maps.get("Uname");
+       String Uname = coo.getValue();
+        HttpSession session =req.getSession();
+        User u = (User)session.getAttribute("U");
+
+       List<Soldiers> list = service.getlLists();
+       String lis = JSONObject.toJSONString(list);
+       resp.getWriter().write(lis);
+
+
+        /*第一次访问时 分页情况*/
+        int pageNo = req.getParameter("pageNo") == null ? 1 : Integer.parseInt(req.getParameter("pageNo"));
+        int pageSize = 5;
+        /*模糊查询*/
+        String text = req.getParameter("text");
+        if (text == "" || text == null) {
+            /*list 分页条*/
+            Result data = service.getlLists(pageNo, pageSize);
+            data.setUrl("list", "");
+            req.setAttribute("data", data);
+            req.getRequestDispatcher("list.jsp").forward(req, resp);
+        } else {
+            Result data = service.getLists(pageNo, pageSize, text);
+            String params = "&text=" + text;
+            data.setUrl("list", params);
+            System.out.println(text);
+            req.setAttribute("text", text);
+            req.setAttribute("data", data);
+            req.getRequestDispatcher("list.jsp").forward(req, resp);
+        }
+
+
 
         /*int pageNo =req.getParameter("pageNo") == null ? 1 : Integer.parseInt(req.getParameter("pageNo"));
         int pageSize = 3;
@@ -35,16 +70,13 @@ public class ListServlet extends HttpServlet {
         req.setAttribute("data", data);
         req.getRequestDispatcher("list.jsp").forward(req,resp);*/
 
-        List<Soldiers> list = service.getlLists();
-        req.setAttribute("list",list);
+      /*  List<Soldiers> list = service.getlLists();
+        req.setAttribute("list", list);
 
-       /* List<Rank> list1 = service1.getlLists();
-        req.setAttribute("list1",list1);*/
-        req.getRequestDispatcher("list.jsp").forward(req,resp);
-
+        req.getRequestDispatcher("list.jsp").forward(req, resp);*/
     }
 
-
+/*
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
@@ -64,4 +96,19 @@ public class ListServlet extends HttpServlet {
 
 
     }
+}*/
+
+
+
+public static Map<String, Cookie> getCookie(Cookie[] cookies){
+    Map<String,Cookie> maps = new HashMap<>();
+    if (cookies!=null){
+        for (Cookie coo:cookies
+        ) {
+            maps.put(coo.getValue(),coo);
+        }
+    }
+    return maps;
 }
+}
+

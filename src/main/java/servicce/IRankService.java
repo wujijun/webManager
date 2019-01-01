@@ -1,7 +1,7 @@
-package main.java.servicce;
+package servicce;
 
-import main.java.pojo.Rank;
-import main.java.pojo.Result;
+
+import pojo.Rank;
 
 import java.util.List;
 

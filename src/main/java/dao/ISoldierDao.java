@@ -1,6 +1,7 @@
-package main.java.dao;
+package dao;
 
-import main.java.pojo.Soldiers;
+
+import pojo.Soldiers;
 
 import java.util.List;
 
@@ -13,6 +14,8 @@ public interface ISoldierDao {
     public  Soldiers getone(int id);
     public  int update(Soldiers soldiers);
     public int getCount();
+    public int getCount(String text);
     public List<Soldiers>getResults(String text);
     public List<Soldiers> getlLists(int pageNo, int pageSize);
+    public List<Soldiers> getlLists(int pageNo, int pageSize,String text);
 }

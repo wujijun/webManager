@@ -1,9 +1,11 @@
-package main.java.controller;
+package controller;
 
-import main.java.pojo.Soldiers;
-import main.java.servicce.ISoldierService;
-import main.java.servicce.SoldierServiceImpl;
 
+
+
+import pojo.Soldiers;
+import servicce.ISoldierService;
+import servicce.SoldierServiceImpl;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.MultipartConfig;
