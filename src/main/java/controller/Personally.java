@@ -21,11 +21,12 @@ public class Personally extends HttpServlet {
 
     @Override
     protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        req.setCharacterEncoding("UTF-8");
         HttpSession session =req.getSession();
         User user = (User) session.getAttribute("U");  /*从session里面去取值*/
 
-        User user2 = service.getOne(user.getUname());
-        req.setAttribute("user",user2);
+        req.setAttribute("user",user);
+        System.out.println(user);
         req.getRequestDispatcher("personally.jsp").forward(req,resp);
     }
 }

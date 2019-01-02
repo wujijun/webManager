@@ -18,7 +18,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-@MultipartConfig
+
 @WebServlet("/list")
 public class ListServlet extends HttpServlet {
     private ISoldierService service = new SoldierServiceImpl();
@@ -30,7 +30,8 @@ public class ListServlet extends HttpServlet {
         Cookie[] cookies = req.getCookies();
        Map<String,Cookie> maps = CookieUtil.getCookie(cookies);
        Cookie coo = maps.get("Uname");
-       String Uname = coo.getValue();
+       String name = coo.getValue();
+
         HttpSession session =req.getSession();
         User u = (User)session.getAttribute("U");
 

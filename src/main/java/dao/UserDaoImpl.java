@@ -11,8 +11,14 @@ import java.sql.SQLException;
 public class UserDaoImpl implements IUserDao {
     @Override
     public int insert(User user) {
-        return JDBCUtil.executeUpdate("insert into user(id,name,password,email) value(?,?,?,?)",
-                user.getUid(),user.getUname(),user.getUpassword(),user.getUemail());
+        return JDBCUtil.executeUpdate("insert into user(id,name,password,email,img) value(?,?,?,?,?)",
+                user.getId(),user.getName(),user.getPassword(),user.getEmail(),user.getImg());
+    }
+
+    @Override
+    public int update(User user) {
+        return JDBCUtil.executeUpdate("update user set name =?, password =?, email =?, img =? where id = ?",
+                user.getName(),user.getPassword(),user.getEmail(),user.getImg(),user.getId());
     }
 
     @Override
@@ -22,10 +28,11 @@ public class UserDaoImpl implements IUserDao {
             public User RowMaping(ResultSet rs) {
                 User u = new User();
                 try {
-                    u.setUid(rs.getInt("id"));
-                    u.setUname(rs.getString("name"));
-                    u.setUpassword(rs.getString("password"));
-                    u.setUemail(rs.getString("email"));
+                    u.setId(rs.getInt("id"));
+                    u.setName(rs.getString("name"));
+                    u.setPassword(rs.getString("password"));
+                    u.setEmail(rs.getString("email"));
+                    u.setImg(rs.getString("img"));
                 } catch (SQLException e) {
                     e.printStackTrace();
                 }

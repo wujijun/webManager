@@ -12,6 +12,18 @@
     <title>Title</title>
     <link rel="stylesheet" href="css/backgroundStyle.css" type="text/css">
     <style>
+        .change{
+            width: 400px;
+            font-size: 35px;
+            margin: auto;
+
+        }
+        .change > img{
+            width: 300px;
+            height: 300px;
+            margin-top: 100px;
+            overflow: hidden;
+        }
 
     </style>
 </head>
@@ -169,11 +181,13 @@
         </div>
     </div>
     <div id="right">
-    <div id="right_center">
-        ${user}
 
+        <div class="change"><img src="${user.img}" width="300px" height="300px"></div>
+        <div class="change">姓名：${user.name}</div>
+        <div class="change">密码：${user.password}</div>
+        <div class="change">电子邮箱：${user.email}</div>
+        <div class="change"><a href="changePersonally?name=${user.name}">修改</a> </div>
 
-    </div>
     <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
     <script type="text/javascript">
 

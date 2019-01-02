@@ -5,13 +5,25 @@
   Time: 22:27
   To change this template use File | Settings | File Templates.
 --%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" isELIgnored="false" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
     <title>Title</title>
     <link rel="stylesheet" href="css/backgroundStyle.css" type="text/css">
     <style>
+        #right_center{
+            width: 400px;
+            height: 600px;
+            margin: auto;
+            margin-top: 50px;
+            font-size: 25px;
+        }
+        #right_center >input{
+            height: 40px;
+            width: 70%;
+            font-size: 25px;
+        }
 
     </style>
 </head>
@@ -169,21 +181,19 @@
         </div>
     </div>
     <div id="right">
-        <div id="right_center">
-
-
-            <div id="img">
-                <form action="img" method="post" enctype="multipart/form-data">
-                    <div id="imgimg">
-                        <img id="img1" width="180px" height="180px" >
-                    </div>
-                    <input type="file"  name="file" onchange="Change(this)">
-                    <input type="submit" name="submit">
-                </form>
+        <form id="right_center" method="post" action="doChange" enctype="multipart/form-data">
+            <div id="imgImg">
+                <img src="${u.img}" width="250px" height="250px" ><br>
+                <input type="file"  name="file" >
             </div>
+            <input type="text" name="id" hidden="hidden" value="${u.id}"><br>
+            姓名：<br><input type="text" name="name" value="${u.name}"><br>
+            密码：<br><input type="text" name="password" value="${u.password}"><br>
+           电子邮箱：<br><input type="text" name="email" value="${u.email}"><br>
+            <br><input type="submit" name="submit" value="确认修改">
 
+        </form>
 
-        </div>
         <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
         <script type="text/javascript">
 

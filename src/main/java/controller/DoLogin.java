@@ -15,20 +15,20 @@ public class DoLogin extends HttpServlet {
     IUserDao user =  new UserDaoImpl();
     @Override
     protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        String Uname = req.getParameter("username");
-        String Upassword = req.getParameter("password");
-        User u =user.getOne(Uname);
+        String name = req.getParameter("username");
+        String password = req.getParameter("password");
+        User u =user.getOne(name);
         if (u!=null){
-            if (Upassword.matches("[ ]*")){
+            if (password.matches("[ ]*")){
                 resp.getWriter().write("2");          /*请输入密码*/
                 }
             else {
-                if (Upassword.equals(u.getUpassword())) {
+                if (password.equals(u.getPassword())) {
                     resp.getWriter().write("0");     /*登录成功*/
 
                     /*cookie*/
-                    Cookie cookn = new Cookie("Uname",Uname);
-                    Cookie cookp = new Cookie("Upassword",Upassword);
+                    Cookie cookn = new Cookie("name",name);
+                    Cookie cookp = new Cookie("password",password);
                     /*设置Cookie存活时间*/
                     cookn.setMaxAge(60*60*10);
                     cookp.setMaxAge(60*60*10);

@@ -1,6 +1,5 @@
 package controller;
 
-
 import dao.IUserDao;
 import dao.UserDaoImpl;
 import pojo.User;
@@ -10,25 +9,22 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
-@WebServlet("/doInsert")
-public class DoInsert extends HttpServlet {
+@WebServlet("/changePersonally")
+public class ChangePersonally extends HttpServlet {
     private IUserDao service = new UserDaoImpl();
     @Override
     protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        String names = req.getParameter("user1");
-        String password = req.getParameter("pass");
-        String email = req.getParameter("pass3");
-        User u = new User();
-        u.setName(names);
-        u.setPassword(password);
-        u.setEmail(email);
-        int re=service.insert(u);
+        req.setCharacterEncoding("UTF-8");
+        HttpSession session =req.getSession();
+        User user = (User) session.getAttribute("U");  /*从session里面去取值*/
 
-        if (re > 0){
-            resp.getWriter().write("1");          /*注册成功*/
-        }
+        req.setAttribute("u",user);
+        System.out.println(user);
+
+        req.getRequestDispatcher("changePersonally.jsp").forward(req,resp);
 
     }
 }
