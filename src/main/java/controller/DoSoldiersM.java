@@ -22,10 +22,22 @@ public class DoSoldiersM extends HttpServlet {
         req.setCharacterEncoding("UTF-8");
         String rank = req.getParameter("rank");
         System.out.println(rank);
-        List<Soldiers> list1 = service1.getlList(rank);
-        System.out.println(list1);
-        req.setAttribute("list1",list1);
-        req.getRequestDispatcher("soldiersM.jsp").forward(req,resp);
+        List<Soldiers> list1=null;
+        if (rank.equals("士兵管理")||rank.equals("干部管理")){
+
+           resp.sendRedirect("list");
+        }
+        else {
+            list1 = service1.getlList(rank);
+            System.out.println(list1);
+            req.setAttribute("list1",list1);
+            req.getRequestDispatcher("soldiersM.jsp").forward(req,resp);
+        }
+
+
+
+
+
 
     }
 }

@@ -42,7 +42,7 @@
         <%--士兵管理--%>
         <form  method="post" action="soldiersM">
             <li class="S_menu">
-                <input type="submit" class="select_button" name="1" value="士兵管理">
+                <input type="submit" class="select_button" name="rank" value="士兵管理">
                 <ul class="tag1">
 
                     <li>

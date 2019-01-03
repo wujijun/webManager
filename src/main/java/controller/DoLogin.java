@@ -24,7 +24,7 @@ public class DoLogin extends HttpServlet {
                 }
             else {
                 if (password.equals(u.getPassword())) {
-                    resp.getWriter().write("0");     /*登录成功*/
+
 
                     /*cookie*/
                     Cookie cookn = new Cookie("name",name);
@@ -38,6 +38,7 @@ public class DoLogin extends HttpServlet {
                     /*session*/
                     HttpSession session = req.getSession();
                     session.setAttribute("U",u);
+                    resp.getWriter().write("0");     /*登录成功*/
 
                 } else {
                     resp.getWriter().write("1");        /*密码错误*/

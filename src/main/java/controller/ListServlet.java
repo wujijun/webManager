@@ -29,8 +29,12 @@ public class ListServlet extends HttpServlet {
 
         Cookie[] cookies = req.getCookies();
        Map<String,Cookie> maps = CookieUtil.getCookie(cookies);
-       Cookie coo = maps.get("Uname");
+       Cookie coo = maps.get("name");
        String name = coo.getValue();
+        System.out.println(name);
+       if (name==null){
+           req.getRequestDispatcher("login.jsp").forward(req,resp);
+       }
 
         HttpSession session =req.getSession();
         User u = (User)session.getAttribute("U");

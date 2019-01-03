@@ -15,8 +15,11 @@ import java.util.Map;
 public class DoOut extends HttpServlet {
     @Override
     protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        Cookie[] coo =req.getCookies();
-        Map<String,Cookie> maps = CookieUtil.getCookie(coo);
+        /*Cookie[] coo =req.getCookies();
+        Map<String,Cookie> maps = CookieUtil.getCookie(coo)*/
+        Cookie cookie =new Cookie("name","");
+        cookie.setMaxAge(0);
+        resp.addCookie(cookie);
         req.getRequestDispatcher("login.jsp").forward(req,resp);
     }
 }

@@ -7,10 +7,7 @@ import pojo.User;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.Part;
+import javax.servlet.http.*;
 import java.io.*;
 @MultipartConfig
 @WebServlet("/doChange")
@@ -44,6 +41,8 @@ public class DoChangePersonally extends HttpServlet {
         u.setName(name);
         u.setId(id);
         service.update(u);
+        req.getSession().setAttribute("U",u);
+
         resp.sendRedirect("personally");
     }
 }
